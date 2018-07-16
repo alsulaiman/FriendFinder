@@ -1,0 +1,12 @@
+var app = require ('express')();
+var bodyParser = require ('body-parser');
+
+var PORT = 3000;
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+require('./app/routing/htmlRoutes')(app);
+
+app.listen(PORT, function () {
+    console.log("App listening on PORT " + PORT);
+});
